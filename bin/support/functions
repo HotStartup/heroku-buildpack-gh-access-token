@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+indent()     { sed 's/^/       /'; }
+arrow()      { sed 's/^/-----> /'; }
+indent-err() { sed "s/^/$(printf '\033')[31m       /;s/$/$(printf '\033')[0m/"; }
+arrow-err()  { sed "s/^/$(printf '\033')[31m-----> /;s/$/$(printf '\033')[0m/"; }
+
+function base64url_encode {
+  declare input=$(cat -)
+  echo -n "${input}" | base64 | url_safe
+}
+
+function url_safe {
+  declare input=$(cat -)
+  echo -n "${input}" |  tr -d '=\r\n' | tr '+' '-' | tr '/' '_'
+}
