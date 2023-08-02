@@ -73,4 +73,4 @@ if [ $TOKEN = "null" ]; then
 fi
 
 echo "export GITHUB_ACCESS_TOKEN=$TOKEN" > $BP_DIR/export
-echo "export BUNDLE_GITHUB__COM=${GITHUB_USER}:${TOKEN}" >> $BP_DIR/export
+echo "export BUNDLE_GITHUB__COM=x-access-token:${TOKEN}" >> $BP_DIR/export
