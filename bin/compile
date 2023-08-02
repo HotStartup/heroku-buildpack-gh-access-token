@@ -12,6 +12,7 @@ source "$BIN_DIR/support/functions"
 
 cd "$BUILD_DIR"
 
+GITHUB_USER=$(cat $ENV_DIR/GITHUB_USER)
 GITHUB_ORG=$(cat $ENV_DIR/GITHUB_ORG)
 GITHUB_REPO=$(cat $ENV_DIR/GITHUB_REPO)
 GITHUB_APP_ID=$(cat $ENV_DIR/GITHUB_APP_ID)
@@ -72,4 +73,4 @@ if [ $TOKEN = "null" ]; then
 fi
 
 echo "export GITHUB_ACCESS_TOKEN=$TOKEN" > $BP_DIR/export
-echo "export BUNDLE_GITHUB__COM=$TOKEN" >> $BP_DIR/export
+echo "export BUNDLE_GITHUB__COM=${GITHUB_USER}:${TOKEN}" >> $BP_DIR/export
