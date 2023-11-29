@@ -73,6 +73,7 @@ fi
 
 echo "export GITHUB_ACCESS_TOKEN=$TOKEN" > $BP_DIR/export
 echo "export BUNDLE_GITHUB__COM=x-access-token:${TOKEN}" >> $BP_DIR/export
+echo "export GIGET_AUTH=$TOKEN" > $BP_DIR/export
 
 echo "Set git url" | indent
-git config --global url."https://x-access-token:${GITHUB_ACCESS_TOKEN}@github.com/".insteadOf "ssh://git@github.com/"
+git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "ssh://git@github.com/"
